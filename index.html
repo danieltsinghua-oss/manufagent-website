@@ -1,59 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ManufAgent</title>
-  <style>
-    /* 全局样式 */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Arial', sans-serif;
-      background: #f5f7fa;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 20px;
-    }
-    h1 {
-      font-size: 3rem;
-      color: #1d72b8;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-    a {
-      color: #1d72b8;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .footer {
-      margin-top: 40px;
-      font-size: 0.9rem;
-      color: #666;
-    }
-    @media (max-width: 600px) {
-      h1 { font-size: 2.2rem; }
-      p { font-size: 1rem; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManufAgent Solutions</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+        .bg-image {
+            /* 注意：这里已经改为 .png 后缀 */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('image_1e4423.png');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .content {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(8px);
+            padding: 40px;
+            border-radius: 15px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        h1 { font-size: 2.5rem; margin: 0; letter-spacing: 1px; }
+        p { font-size: 1.2rem; margin-top: 15px; opacity: 0.9; }
+    </style>
 </head>
 <body>
-  <h1>ManufAgent</h1>
-  <p>Coming Soon</p>
-  <p>Contact us at <a href="mailto:info@manufagent.com">info@manufagent.com</a></p>
-
-  <div class="footer">
-    &copy; 2026 ManufAgent. All rights reserved.
-  </div>
+    <div class="bg-image">
+        <div class="content">
+            <h1>ManufAgent Solutions</h1>
+            <p>Under construction. Please check back for an update soon.</p>
+        </div>
+    </div>
 </body>
 </html>
+
