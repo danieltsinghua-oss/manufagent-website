@@ -1,134 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ManufAgent Solutions | Autonomous AI for Manufacturing</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: white;
+            background-color: #000;
+        }
 
-  <title>ManufAgent Solutions | AI Agents for Manufacturing</title>
+        .bg-image {
+            /* 确保文件名正确 */
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('image_1e4423.png');
+            height: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-  <meta name="description"
-        content="ManufAgent Solutions is building autonomous AI agents for next-generation manufacturing systems." />
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 900px;
+            text-shadow: 0px 4px 20px rgba(0,0,0,0.9);
+        }
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        h1 { font-size: 3.8rem; margin: 0; letter-spacing: -1px; font-weight: 800; }
+        
+        .tagline { 
+            font-size: 1.6rem; 
+            color: #4db8ff; /* 科技感十足的亮蓝色 */
+            margin: 15px 0 40px 0;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      height: 100vh;
-      background: #000;
-      color: #ffffff;
-    }
+        .description {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            max-width: 750px;
+            margin: 0 auto 50px auto;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+        }
 
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      background-image: url("image_1e4423.png"); /* ← 已修改 */
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+        .status-container {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            padding-top: 30px;
+        }
 
-    .overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(2px);
-    }
+        .status {
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            color: #f39c12; /* 活力橙 */
+        }
 
-    .content {
-      position: relative;
-      max-width: 900px;
-      padding: 40px;
-      text-align: center;
-      z-index: 1;
-    }
+        .update-note { font-size: 1rem; opacity: 0.7; margin: 8px 0 40px 0; }
 
-    h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      letter-spacing: 0.5px;
-      margin-bottom: 20px;
-    }
+        .contact { font-size: 1.1rem; }
+        .contact a { color: #4db8ff; text-decoration: none; font-weight: 500; }
 
-    h2 {
-      font-size: 1.4rem;
-      font-weight: 400;
-      color: #cfd8dc;
-      margin-bottom: 35px;
-    }
+        footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            font-size: 0.8rem;
+            opacity: 0.5;
+            letter-spacing: 1px;
+        }
 
-    p {
-      font-size: 1rem;
-      color: #b0bec5;
-      line-height: 1.6;
-    }
-
-    .contact {
-      margin-top: 40px;
-      font-size: 0.95rem;
-    }
-
-    .contact a {
-      color: #4fc3f7;
-      text-decoration: none;
-    }
-
-    .contact a:hover {
-      text-decoration: underline;
-    }
-
-    footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #90a4ae;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.2rem;
-      }
-      h2 {
-        font-size: 1.1rem;
-      }
-    }
-  </style>
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .tagline { font-size: 1.1rem; }
+            .description { font-size: 1.1rem; }
+        }
+    </style>
 </head>
-
 <body>
-  <div class="hero">
-    <div class="overlay"></div>
 
-    <div class="content">
-      <h1>ManufAgent Solutions</h1>
-      <h2>Autonomous AI agents for next-generation manufacturing</h2>
+    <div class="bg-image">
+        <div class="container">
+            <h1>ManufAgent Solutions</h1>
+            <div class="tagline">Autonomous AI agents for next-generation manufacturing</div>
+            
+            <p class="description">
+                We are building autonomous, agent-based systems that<br>
+                <strong>orchestrate, optimize, and execute</strong> manufacturing operations at scale.
+            </p>
 
-      <p>
-        We are building intelligent agent-based systems designed to transform
-        manufacturing operations, automation, and decision-making.
-      </p>
+            <div class="status-container">
+                <div class="status">Currently in active development</div>
+                <p class="update-note">More details will be released soon</p>
+            </div>
 
-      <p class="contact">
-        Contact: <a href="mailto:info@manufagent.com">info@manufagent.com</a>
-      </p>
+            <div class="contact">
+                Connect: <a href="mailto:info@manufagent.com">info@manufagent.com</a>
+            </div>
+        </div>
+
+        <footer>
+            © 2026 ManufAgent Solutions. All rights reserved.
+        </footer>
     </div>
 
-    <footer>
-      © 2026 ManufAgent Solutions. All rights reserved.
-    </footer>
-  </div>
 </body>
 </html>
-
-
-
 
