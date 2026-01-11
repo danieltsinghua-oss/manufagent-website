@@ -8,7 +8,7 @@
         :root {
             --primary-blue: #1A365D; /* 品牌深蓝色 */
             --accent-orange: #F97316; /* 品牌橙色 */
-            --glass-bg: rgba(255, 255, 255, 0.88); /* 高亮度玻璃底板，确保深蓝文字清晰 */
+            --glass-bg: rgba(255, 255, 255, 0.5); /* 核心修改：不透明度设定为 0.5 */
         }
 
         * {
@@ -23,7 +23,7 @@
             align-items: center;
             justify-content: center;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            /* 设置背景图为 image_1e4423.png */
+            /* 背景图设置 */
             background-image: url('image_1e4423.png'); 
             background-size: cover;
             background-position: center;
@@ -34,32 +34,33 @@
         /* 玻璃拟态容器 */
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(20px); /* 增加模糊度以补偿不透明度的降低，提升高级感 */
+            -webkit-backdrop-filter: blur(20px);
             border-radius: 20px;
-            padding: 2.2rem; /* 间距缩小 */
+            padding: 2.2rem;
             max-width: 650px;
             width: 90%;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             position: relative;
             z-index: 1;
         }
 
         header {
-            margin-bottom: 1rem; /* 间距缩小 50% */
+            margin-bottom: 1rem;
         }
 
         h1 {
-            font-size: 2.1rem; /* 字号等比例缩小 30% */
+            font-size: 2.1rem;
             font-weight: 800;
             color: var(--primary-blue);
             letter-spacing: -0.02em;
             margin-bottom: 0.2rem;
+            text-shadow: 0 1px 2px rgba(255,255,255,0.3); /* 增加微弱文字发光辅助阅读 */
         }
 
         .tagline {
-            font-size: 0.8rem; /* 字号等比例缩小 30% */
+            font-size: 0.8rem;
             color: var(--accent-orange);
             font-weight: 700;
             text-transform: uppercase;
@@ -67,27 +68,27 @@
         }
 
         .main-content {
-            font-size: 1.1rem; /* 字号等比例缩小 30% */
-            font-weight: 400;
+            font-size: 1.1rem;
+            font-weight: 500; /* 略微增加字重，确保在 0.5 透明度下清晰 */
             color: var(--primary-blue);
             line-height: 1.5;
-            margin-bottom: 1.2rem; /* 间距缩小 50% */
+            margin-bottom: 1.2rem;
         }
 
         .main-content strong {
             font-weight: 700;
-            border-bottom: 1.5px solid rgba(249, 115, 22, 0.3);
+            border-bottom: 1.5px solid rgba(249, 115, 22, 0.5);
         }
 
-        /* 电池行业聚焦区域：边框缩小，文字增大 */
+        /* 电池行业聚焦区域 */
         .highlight-card {
-            border-left: 2px solid var(--accent-orange); /* 边框线缩小 */
+            border-left: 2px solid var(--accent-orange);
             padding: 0.4rem 0 0.4rem 1.2rem;
-            margin-bottom: 1.2rem; /* 间距缩小 50% */
+            margin-bottom: 1.2rem;
         }
 
         .highlight-text {
-            font-size: 1.35rem; /* 文字反向增大，突出重点 */
+            font-size: 1.35rem;
             color: var(--primary-blue);
             line-height: 1.35;
             font-weight: 700;
@@ -97,7 +98,7 @@
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 0.6rem; /* 间距缩小 */
+            margin-bottom: 0.6rem;
         }
 
         .status-dot {
@@ -116,7 +117,7 @@
 
         .info-text {
             font-size: 0.85rem;
-            color: rgba(26, 54, 93, 0.7);
+            color: rgba(26, 54, 93, 0.8);
             margin-bottom: 0.8rem;
         }
 
@@ -139,7 +140,7 @@
             text-align: center;
             font-size: 0.75rem;
             color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
         @media (max-width: 640px) {
