@@ -21,9 +21,8 @@
             height: 100%;
             display: flex;
             align-items: center;
-            /* 修改：通过 flex 对齐和 padding 实现整体向右平移 10% */
-            justify-content: center; 
-            padding-left: 10%; 
+            /* 基础右对齐 */
+            justify-content: flex-end; 
             font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
             background-size: cover;
@@ -32,15 +31,20 @@
             overflow: hidden;
         }
 
-        /* 形状保持不变的紧凑型面板 */
+        /* 紧凑型面板：精确向右移动 11% */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
             padding: 1.5rem 1.8rem;
-            max-width: 520px; /* 宽度保持不变 */
-            width: 100%;
+            max-width: 520px;
+            width: 85%;
+            
+            /* 调整：通过 transform 实现精确的 11% 向右位移，同时配合 margin-right 确保不贴边 */
+            transform: translateX(11%); 
+            margin-right: 15%; /* 增加右边距作为缓冲 */
+            
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
             position: relative;
@@ -132,12 +136,18 @@
             text-align: center;
             font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.8);
+            z-index: 5;
         }
 
-        /* 移动端适配 */
-        @media (max-width: 768px) {
-            body, html { padding-left: 0; justify-content: center; }
-            .glass-panel { width: 90%; padding: 1.2rem; }
+        /* 移动端适配：手机上取消平移，恢复居中 */
+        @media (max-width: 1024px) {
+            body, html { justify-content: center; }
+            .glass-panel { 
+                margin-right: 0; 
+                transform: translateX(0); 
+                width: 90%; 
+                padding: 1.2rem; 
+            }
             h1 { font-size: 1.8rem; }
             .highlight-text { font-size: 1.15rem; }
         }
