@@ -21,10 +21,8 @@
             height: 100%;
             display: flex;
             align-items: center;
-            /* 居中对齐，配合 padding 实现容器整体向左偏 */
+            /* 基础对齐设为居中 */
             justify-content: center; 
-            /* 左右边框向左移动的效果通过右内边距实现 */
-            padding-right: 20%; 
             font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
             background-size: cover;
@@ -33,7 +31,7 @@
             overflow: hidden;
         }
 
-        /* 紧凑型面板：形状保持不变，向右偏移 10% */
+        /* 紧凑型面板：整体向右偏移 10% */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
@@ -41,8 +39,9 @@
             border-radius: 16px;
             padding: 1.5rem 1.8rem;
             max-width: 520px;
-            width: 100%; /* 这里的 100% 受限于父级的对齐空间 */
-            /* 核心修改：面板相对于当前位置向右平移 10% */
+            width: 85%;
+            /* 关键修改：通过 transform 将面板相对于中心点向右平移 10% */
+            /* 这会使面板整体右移，但不会拉伸或压缩面板本身的形状 */
             transform: translateX(10%); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
@@ -137,9 +136,8 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* 移动端适配 */
+        /* 移动端适配：手机屏幕由于宽度有限，取消偏移以防文字出屏 */
         @media (max-width: 768px) {
-            body, html { padding-right: 0; justify-content: center; }
             .glass-panel { transform: translateX(0); width: 90%; padding: 1.2rem; }
             h1 { font-size: 1.8rem; }
             .highlight-text { font-size: 1.15rem; }
