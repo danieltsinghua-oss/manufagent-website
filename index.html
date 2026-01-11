@@ -8,8 +8,7 @@
         :root {
             --accent-orange: #f97316;
             --text-light: #ffffff;
-            --text-dim: rgba(255, 255, 255, 0.7);
-            --glass-bg: rgba(15, 23, 42, 0.6); /* 毛玻璃背景 */
+            --text-dim: rgba(255, 255, 255, 0.85); /* 提高透明度以增加亮度 */
         }
 
         * {
@@ -21,19 +20,19 @@
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-color: #030712;
-            /* 将背景图设置为您提供的 image_1e4423.png */
+            /* 背景图：确保 image_1e4423.png 与此文件在同一目录 */
             background-image: url('image_1e4423.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
             color: var(--text-light);
-            line-height: 1.6;
+            line-height: 1.5;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* 增加一层渐变遮罩，确保背景不会反光过强干扰文字 */
+        /* 移除了之前的深色半透明遮罩，恢复正常亮度 */
         body::after {
             content: "";
             position: fixed;
@@ -41,16 +40,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0.4) 100%);
+            background: rgba(15, 23, 42, 0.1); /* 极低透明度，仅用于保证文字可读 */
             z-index: 0;
         }
 
         .container {
             position: relative;
             z-index: 1;
-            max-width: 900px;
+            max-width: 700px; /* 缩小容器宽度配合小字号 */
             margin: 0 auto;
-            padding: 4rem 2rem;
+            padding: 2rem 1.5rem; /* 缩小内边距 50% */
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -58,103 +57,101 @@
         }
 
         header {
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem; /* 间距缩小 50% */
         }
 
         h1 {
-            font-size: 3rem;
+            font-size: 2.1rem; /* 字号缩小约 30% */
             font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 0.5rem;
-            text-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.25rem;
         }
 
         .tagline {
-            font-size: 1.25rem;
+            font-size: 0.85rem; /* 字号缩小约 30% */
             color: var(--accent-orange);
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
         }
 
         .main-content {
-            font-size: 1.6rem;
+            font-size: 1.1rem; /* 字号缩小约 30% */
             font-weight: 300;
-            margin-bottom: 2.5rem;
-            max-width: 800px;
+            margin-bottom: 1.25rem; /* 间距缩小 50% */
         }
 
         .main-content strong {
             color: #fff;
             font-weight: 600;
-            border-bottom: 2px solid var(--accent-orange);
+            border-bottom: 1.5px solid var(--accent-orange);
         }
 
+        /* 电池行业聚焦区域优化 */
         .highlight-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 2rem;
-            border-radius: 12px;
-            margin-bottom: 3rem;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-left: 2px solid var(--accent-orange); /* 缩小边框宽度 */
+            padding: 0.5rem 0 0.5rem 1rem; /* 缩小内边距 */
+            margin-bottom: 1.5rem; /* 间距缩小 50% */
         }
 
         .highlight-text {
-            font-size: 1.15rem;
-            color: var(--text-dim);
-            line-height: 1.8;
+            font-size: 1.3rem; /* 文字反向增大，突出显示 */
+            color: #ffffff;
+            line-height: 1.4;
+            font-weight: 500;
         }
 
         .status-box {
             display: flex;
             align-items: center;
-            gap: 12px;
-            margin-bottom: 2rem;
+            gap: 8px;
+            margin-bottom: 1rem; /* 间距缩小 50% */
         }
 
         .status-dot {
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             background-color: var(--accent-orange);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-orange);
+            box-shadow: 0 0 8px var(--accent-orange);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.95); opacity: 0.7; }
+            0% { transform: scale(0.9); opacity: 0.7; }
             50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(0.95); opacity: 0.7; }
+            100% { transform: scale(0.9); opacity: 0.7; }
+        }
+
+        .coming-soon {
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            margin-bottom: 1rem;
+        }
+
+        .contact-box {
+            font-size: 0.85rem;
         }
 
         .contact-link {
             color: var(--text-light);
             text-decoration: none;
-            font-weight: 500;
             border-bottom: 1px solid var(--accent-orange);
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            color: var(--accent-orange);
         }
 
         footer {
             position: relative;
             z-index: 1;
-            padding: 2rem;
+            padding: 1rem;
             text-align: center;
-            font-size: 0.875rem;
+            font-size: 0.7rem; /* 字号缩小 */
             color: rgba(255, 255, 255, 0.4);
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.2rem; }
-            .main-content { font-size: 1.25rem; }
-            .container { padding: 2rem; }
+            h1 { font-size: 1.8rem; }
+            .highlight-text { font-size: 1.1rem; }
+            .container { padding: 1rem; }
         }
     </style>
 </head>
@@ -179,10 +176,10 @@
 
             <div class="status-box">
                 <div class="status-dot"></div>
-                <span style="font-weight: 500; color: var(--accent-orange);">Currently in active development</span>
+                <span style="font-size: 0.85rem; font-weight: 500; color: var(--accent-orange);">Currently in active development</span>
             </div>
             
-            <p style="color: var(--text-dim); margin-bottom: 2rem;">More details will be released soon.</p>
+            <p class="coming-soon">More details will be released soon.</p>
 
             <div class="contact-box">
                 <p>Contact: <a href="mailto:info@manufagent.com" class="contact-link">info@manufagent.com</a></p>
@@ -196,4 +193,8 @@
 
 </body>
 </html>
+
+</body>
+</html>
+
 
