@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ManufAgent Solutions | Autonomous AI Agents</title>
     <style>
         :root {
-            --primary-blue: #1A365D; /* 品牌深蓝色 */
-            --accent-orange: #F97316; /* 品牌橙色 */
-            /* 根据要求：不透明度设定为 0.01 */
+            --text-white: #FFFFFF;
+            --accent-orange: #F97316;
+            /* 透明度 0.01，近乎全透明 */
             --glass-bg: rgba(255, 255, 255, 0.01); 
         }
 
@@ -23,24 +23,22 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #0f172a; 
+            background-color: #030712; 
         }
 
-        /* 极高透明度的面板 */
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(4px); /* 稍微保留一点模糊，增加质感 */
-            -webkit-backdrop-filter: blur(4px);
-            border-radius: 20px;
+            backdrop-filter: blur(8px); /* 稍微增加模糊度，提升高级感 */
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 24px;
             padding: 2.2rem;
             max-width: 650px;
             width: 90%;
-            /* 移除强阴影，改用柔和光晕 */
             border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             z-index: 1;
@@ -53,11 +51,9 @@
         h1 {
             font-size: 2.1rem;
             font-weight: 800;
-            color: var(--primary-blue);
+            color: var(--text-white);
             letter-spacing: -0.02em;
             margin-bottom: 0.2rem;
-            /* 增加文字阴影，防止背景干扰 */
-            text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .tagline {
@@ -65,21 +61,20 @@
             color: var(--accent-orange);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
+            letter-spacing: 0.1em;
         }
 
         .main-content {
             font-size: 1.1rem;
-            font-weight: 500; /* 增加字重，提高清晰度 */
-            color: var(--primary-blue);
-            line-height: 1.5;
+            font-weight: 300; /* 白色文字建议稍细，更显高级 */
+            color: var(--text-white);
+            line-height: 1.6;
             margin-bottom: 1.2rem;
-            text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.8);
         }
 
         .main-content strong {
-            font-weight: 800;
+            font-weight: 700;
+            color: #fff;
             border-bottom: 1.5px solid var(--accent-orange);
         }
 
@@ -91,61 +86,64 @@
 
         .highlight-text {
             font-size: 1.35rem;
-            color: var(--primary-blue);
-            line-height: 1.35;
-            font-weight: 800;
-            text-shadow: 0px 1px 2px rgba(255, 255, 255, 0.8);
+            color: var(--text-white);
+            line-height: 1.4;
+            font-weight: 700;
         }
 
         .status-box {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 0.6rem;
         }
 
         .status-dot {
-            width: 7px;
-            height: 7px;
+            width: 8px;
+            height: 8px;
             background-color: var(--accent-orange);
             border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-orange);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
+            0% { transform: scale(0.9); opacity: 0.5; }
+            50% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.9); opacity: 0.5; }
         }
 
         .info-text {
             font-size: 0.85rem;
-            color: var(--primary-blue);
-            opacity: 0.9;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 1rem;
         }
 
         .contact-box {
             font-size: 0.9rem;
-            color: var(--primary-blue);
+            color: var(--text-white);
         }
 
         .contact-link {
-            color: var(--primary-blue);
+            color: var(--text-white);
             text-decoration: none;
             font-weight: 700;
-            border-bottom: 1.5px solid var(--accent-orange);
+            border-bottom: 1px solid var(--accent-orange);
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            color: var(--accent-orange);
+            border-bottom-color: var(--text-white);
         }
 
         footer {
             position: absolute;
-            bottom: 1.2rem;
+            bottom: 1.5rem;
             width: 100%;
             text-align: center;
             font-size: 0.75rem;
-            color: #ffffff;
-            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+            color: rgba(255, 255, 255, 0.5);
         }
 
         @media (max-width: 640px) {
@@ -176,7 +174,7 @@
 
             <div class="status-box">
                 <div class="status-dot"></div>
-                <span style="font-size: 0.85rem; font-weight: 800; color: var(--accent-orange);">Currently in active development</span>
+                <span style="font-size: 0.85rem; font-weight: 700; color: var(--accent-orange);">Currently in active development</span>
             </div>
             
             <p class="info-text">More details will be released soon.</p>
@@ -188,7 +186,7 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 ManufAgent Solutions. All rights reserved.</p>
+        &copy; 2026 ManufAgent Solutions. All rights reserved.
     </footer>
 
 </body>
