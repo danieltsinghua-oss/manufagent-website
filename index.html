@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,8 @@
         :root {
             --primary-blue: #1A365D; /* 品牌深蓝色 */
             --accent-orange: #F97316; /* 品牌橙色 */
-            --text-glow: rgba(255, 255, 255, 0.6); /* 文字背后的微光 */
+            /* 关键修改：不透明度设定为 0.05 */
+            --glass-bg: rgba(255, 255, 255, 0.05); 
         }
 
         * {
@@ -23,28 +24,39 @@
             align-items: center;
             justify-content: center;
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            /* 背景图：image_1e4423.png */
-            background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), 
-                        url('image_1e4423.png') no-repeat center center fixed;
+            background-image: url('image_1e4423.png'); 
             background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-color: #0f172a; 
         }
 
-        /* 移除玻璃底板后的主容器 */
-        .content-container {
+        /* 极高透明度的玻璃容器 */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px); /* 保持模糊感以增强质感 */
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 2.2rem;
             max-width: 650px;
             width: 90%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1); /* 边框也相应减淡 */
             position: relative;
             z-index: 1;
-            /* 为整体文字增加轻微的可读性阴影 */
-            text-shadow: 0 1px 2px var(--text-glow), 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         header {
-            margin-bottom: 1rem; /* 间距缩小 50% */
+            margin-bottom: 1rem;
+        }
+
+        /* 为深蓝色文字添加微弱光晕，防止在透明背景下看不清 */
+        h1, .main-content, .highlight-text, .contact-box {
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.3);
         }
 
         h1 {
-            font-size: 2.1rem; /* 字号缩小 30% */
+            font-size: 2.1rem;
             font-weight: 800;
             color: var(--primary-blue);
             letter-spacing: -0.02em;
@@ -52,38 +64,36 @@
         }
 
         .tagline {
-            font-size: 0.8rem; /* 字号缩小 30% */
+            font-size: 0.8rem;
             color: var(--accent-orange);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.08em;
-            text-shadow: none; /* 橙色文字不需要白色阴影 */
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         .main-content {
-            font-size: 1.1rem; /* 字号缩小 30% */
-            font-weight: 500; /* 略微加重字重以提高无底板下的清晰度 */
+            font-size: 1.1rem;
+            font-weight: 500; /* 略微加重字重提高识别度 */
             color: var(--primary-blue);
             line-height: 1.5;
-            margin-bottom: 1.2rem; /* 间距缩小 50% */
+            margin-bottom: 1.2rem;
         }
 
         .main-content strong {
             font-weight: 800;
-            border-bottom: 2px solid var(--accent-orange);
+            border-bottom: 1.5px solid var(--accent-orange);
         }
 
-        /* 电池行业聚焦区域 */
         .highlight-card {
-            border-left: 3px solid var(--accent-orange);
+            border-left: 2px solid var(--accent-orange);
             padding: 0.4rem 0 0.4rem 1.2rem;
             margin-bottom: 1.2rem;
-            /* 局部轻微提亮背景以突出重点文字 */
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.03); /* 给予重点区域极微弱的区分 */
         }
 
         .highlight-text {
-            font-size: 1.35rem; /* 字号反向增大 */
+            font-size: 1.35rem;
             color: var(--primary-blue);
             line-height: 1.35;
             font-weight: 800;
@@ -102,19 +112,18 @@
             background-color: var(--accent-orange);
             border-radius: 50%;
             animation: pulse 2s infinite;
-            box-shadow: 0 0 5px var(--accent-orange);
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.6; }
-            50% { transform: scale(1.2); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.6; }
+            0% { opacity: 0.5; transform: scale(0.9); }
+            50% { opacity: 1; transform: scale(1.1); }
+            100% { opacity: 0.5; transform: scale(0.9); }
         }
 
         .info-text {
             font-size: 0.85rem;
             color: var(--primary-blue);
-            opacity: 0.8;
+            opacity: 0.9;
             margin-bottom: 0.8rem;
         }
 
@@ -136,11 +145,12 @@
             width: 100%;
             text-align: center;
             font-size: 0.75rem;
-            color: var(--primary-blue);
-            opacity: 0.6;
+            color: rgba(255, 255, 255, 0.9);
+            text-shadow: 0 1px 3px rgba(0,0,0,0.5);
         }
 
         @media (max-width: 640px) {
+            .glass-panel { padding: 1.5rem; }
             h1 { font-size: 1.8rem; }
             .highlight-text { font-size: 1.15rem; }
         }
@@ -148,7 +158,7 @@
 </head>
 <body>
 
-    <div class="content-container">
+    <div class="glass-panel">
         <header>
             <h1>ManufAgent Solutions</h1>
             <p class="tagline">Autonomous AI agents for next-generation manufacturing</p>
