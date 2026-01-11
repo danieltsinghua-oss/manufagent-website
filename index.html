@@ -21,7 +21,6 @@
             height: 100%;
             display: flex;
             align-items: center;
-            /* 让容器内的内容靠右对齐 */
             justify-content: flex-end; 
             font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
@@ -31,7 +30,6 @@
             overflow: hidden;
         }
 
-        /* 紧凑型面板：偏向右侧 */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
@@ -40,8 +38,8 @@
             padding: 1.5rem 1.8rem;
             max-width: 520px;
             width: 85%;
-            /* 修改：设置右边距为 50% */
-            margin-right: 50%; 
+            /* 修改：将 margin-right 从 8% 增加到 28%，使面板向左偏移 20% */
+            margin-right: 28%; 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
             position: relative;
@@ -135,11 +133,10 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* 移动端适配：手机上恢复居中以保证显示效果 */
         @media (max-width: 1024px) {
-            .glass-panel { margin-right: 10%; }
+            .glass-panel { margin-right: 15%; }
         }
-        
+
         @media (max-width: 768px) {
             body, html { justify-content: center; }
             .glass-panel { margin-right: 0; width: 90%; padding: 1.2rem; }
@@ -186,4 +183,3 @@
 
 </body>
 </html>
-
