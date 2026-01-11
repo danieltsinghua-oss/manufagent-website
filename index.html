@@ -6,9 +6,9 @@
     <title>ManufAgent Solutions | Autonomous AI Agents</title>
     <style>
         :root {
+            --primary-blue: #1A365D; /* 品牌深蓝色 */
             --accent-orange: #f97316;
-            --text-light: #ffffff;
-            --text-dim: rgba(255, 255, 255, 0.85); /* 提高透明度以增加亮度 */
+            --text-dim: rgba(26, 54, 93, 0.8); /* 深蓝色的半透明版 */
         }
 
         * {
@@ -19,20 +19,19 @@
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            background-color: #030712;
-            /* 背景图：确保 image_1e4423.png 与此文件在同一目录 */
+            /* 背景图：确保 image_1e4423.png 在同目录下 */
             background-image: url('image_1e4423.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            color: var(--text-light);
+            color: var(--primary-blue); /* 全局文字调为深蓝色 */
             line-height: 1.5;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
         }
 
-        /* 移除了之前的深色半透明遮罩，恢复正常亮度 */
+        /* 进一步降低遮罩感，确保背景明亮 */
         body::after {
             content: "";
             position: fixed;
@@ -40,16 +39,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(15, 23, 42, 0.1); /* 极低透明度，仅用于保证文字可读 */
+            background: rgba(255, 255, 255, 0.1); /* 改为极淡的白色遮罩，增加亮度 */
             z-index: 0;
         }
 
         .container {
             position: relative;
             z-index: 1;
-            max-width: 700px; /* 缩小容器宽度配合小字号 */
+            max-width: 700px;
             margin: 0 auto;
-            padding: 2rem 1.5rem; /* 缩小内边距 50% */
+            padding: 2rem 1.5rem;
             flex: 1;
             display: flex;
             flex-direction: column;
@@ -57,18 +56,19 @@
         }
 
         header {
-            margin-bottom: 1.5rem; /* 间距缩小 50% */
+            margin-bottom: 1.5rem;
         }
 
         h1 {
-            font-size: 2.1rem; /* 字号缩小约 30% */
+            font-size: 2.1rem;
             font-weight: 800;
             letter-spacing: -0.02em;
             margin-bottom: 0.25rem;
+            color: var(--primary-blue);
         }
 
         .tagline {
-            font-size: 0.85rem; /* 字号缩小约 30% */
+            font-size: 0.85rem;
             color: var(--accent-orange);
             font-weight: 600;
             text-transform: uppercase;
@@ -76,36 +76,36 @@
         }
 
         .main-content {
-            font-size: 1.1rem; /* 字号缩小约 30% */
-            font-weight: 300;
-            margin-bottom: 1.25rem; /* 间距缩小 50% */
+            font-size: 1.1rem;
+            font-weight: 400; /* 稍微加重字重，确保深蓝色在背景上清晰 */
+            margin-bottom: 1.25rem;
+            color: var(--primary-blue);
         }
 
         .main-content strong {
-            color: #fff;
-            font-weight: 600;
-            border-bottom: 1.5px solid var(--accent-orange);
+            color: var(--primary-blue);
+            font-weight: 700;
+            border-bottom: 2px solid var(--accent-orange);
         }
 
-        /* 电池行业聚焦区域优化 */
         .highlight-card {
-            border-left: 2px solid var(--accent-orange); /* 缩小边框宽度 */
-            padding: 0.5rem 0 0.5rem 1rem; /* 缩小内边距 */
-            margin-bottom: 1.5rem; /* 间距缩小 50% */
+            border-left: 2px solid var(--accent-orange);
+            padding: 0.5rem 0 0.5rem 1rem;
+            margin-bottom: 1.5rem;
         }
 
         .highlight-text {
-            font-size: 1.3rem; /* 文字反向增大，突出显示 */
-            color: #ffffff;
+            font-size: 1.3rem;
+            color: var(--primary-blue);
             line-height: 1.4;
-            font-weight: 500;
+            font-weight: 600;
         }
 
         .status-box {
             display: flex;
             align-items: center;
             gap: 8px;
-            margin-bottom: 1rem; /* 间距缩小 50% */
+            margin-bottom: 1rem;
         }
 
         .status-dot {
@@ -131,11 +131,13 @@
 
         .contact-box {
             font-size: 0.85rem;
+            color: var(--primary-blue);
         }
 
         .contact-link {
-            color: var(--text-light);
+            color: var(--primary-blue);
             text-decoration: none;
+            font-weight: 600;
             border-bottom: 1px solid var(--accent-orange);
         }
 
@@ -144,8 +146,8 @@
             z-index: 1;
             padding: 1rem;
             text-align: center;
-            font-size: 0.7rem; /* 字号缩小 */
-            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.7rem;
+            color: var(--text-dim);
         }
 
         @media (max-width: 768px) {
@@ -176,7 +178,7 @@
 
             <div class="status-box">
                 <div class="status-dot"></div>
-                <span style="font-size: 0.85rem; font-weight: 500; color: var(--accent-orange);">Currently in active development</span>
+                <span style="font-size: 0.85rem; font-weight: 600; color: var(--accent-orange);">Currently in active development</span>
             </div>
             
             <p class="coming-soon">More details will be released soon.</p>
@@ -194,7 +196,5 @@
 </body>
 </html>
 
-</body>
-</html>
 
 
