@@ -21,8 +21,8 @@
             height: 100%;
             display: flex;
             align-items: center;
-            /* 基础右对齐 */
-            justify-content: flex-end; 
+            /* 将逻辑中心设为居中，配合 transform 实现精确位移 */
+            justify-content: center; 
             font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
             background-size: cover;
@@ -31,7 +31,7 @@
             overflow: hidden;
         }
 
-        /* 紧凑型面板：精确向右移动 11% */
+        /* 紧凑型面板：向左整体偏移 10% */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
@@ -40,11 +40,8 @@
             padding: 1.5rem 1.8rem;
             max-width: 520px;
             width: 85%;
-            
-            /* 调整：通过 transform 实现精确的 11% 向右位移，同时配合 margin-right 确保不贴边 */
-            transform: translateX(11%); 
-            margin-right: 15%; /* 增加右边距作为缓冲 */
-            
+            /* 核心修改：将面板整体向左偏移屏幕宽度的 10% */
+            transform: translateX(-10%);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
             position: relative;
@@ -136,18 +133,11 @@
             text-align: center;
             font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.8);
-            z-index: 5;
         }
 
-        /* 移动端适配：手机上取消平移，恢复居中 */
-        @media (max-width: 1024px) {
-            body, html { justify-content: center; }
-            .glass-panel { 
-                margin-right: 0; 
-                transform: translateX(0); 
-                width: 90%; 
-                padding: 1.2rem; 
-            }
+        /* 移动端适配：手机上恢复居中，移除位移 */
+        @media (max-width: 768px) {
+            .glass-panel { transform: translateX(0); width: 90%; padding: 1.2rem; }
             h1 { font-size: 1.8rem; }
             .highlight-text { font-size: 1.15rem; }
         }
