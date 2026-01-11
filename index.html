@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ManufAgent Solutions | Autonomous AI Agents</title>
     <style>
         :root {
-            --text-white: #FFFFFF;
-            --accent-orange: #F97316;
-            /* 透明度 0.01，近乎全透明 */
-            --glass-bg: rgba(255, 255, 255, 0.01); 
+            --primary-blue: #1A365D; /* 品牌深蓝色 */
+            --accent-orange: #F97316; /* 品牌橙色 */
+            /* 设定不透明度为 0.7，提供稳重的磨砂玻璃质感 */
+            --glass-bg: rgba(255, 255, 255, 0.7); 
         }
 
         * {
@@ -23,127 +23,123 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            font-family: 'Inter', -apple-system, sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             background-image: url('image_1e4423.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #030712; 
+            background-color: #0f172a; 
         }
 
+        /* 0.7 不透明度的玻璃面板：既能透出背景纹理，又保证了极致的可读性 */
         .glass-panel {
             background: var(--glass-bg);
-            backdrop-filter: blur(8px); /* 稍微增加模糊度，提升高级感 */
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 24px;
+            backdrop-filter: blur(12px); /* 适中的模糊度，营造空间深度感 */
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 20px;
             padding: 2.2rem;
             max-width: 650px;
             width: 90%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             position: relative;
             z-index: 1;
         }
 
         header {
-            margin-bottom: 1rem;
+            margin-bottom: 1rem; /* 间距缩小 50% */
         }
 
         h1 {
-            font-size: 2.1rem;
+            font-size: 2.1rem; /* 字号缩小 30% */
             font-weight: 800;
-            color: var(--text-white);
+            color: var(--primary-blue);
             letter-spacing: -0.02em;
             margin-bottom: 0.2rem;
         }
 
         .tagline {
-            font-size: 0.8rem;
+            font-size: 0.8rem; /* 字号缩小 30% */
             color: var(--accent-orange);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.08em;
         }
 
         .main-content {
-            font-size: 1.1rem;
-            font-weight: 300; /* 白色文字建议稍细，更显高级 */
-            color: var(--text-white);
-            line-height: 1.6;
-            margin-bottom: 1.2rem;
+            font-size: 1.1rem; /* 字号缩小 30% */
+            font-weight: 400;
+            color: var(--primary-blue);
+            line-height: 1.5;
+            margin-bottom: 1.2rem; /* 间距缩小 50% */
         }
 
         .main-content strong {
             font-weight: 700;
-            color: #fff;
-            border-bottom: 1.5px solid var(--accent-orange);
+            border-bottom: 2px solid rgba(249, 115, 22, 0.3);
         }
 
+        /* 电池聚焦框：边框缩小，文字增大 */
         .highlight-card {
-            border-left: 2px solid var(--accent-orange);
+            border-left: 2px solid var(--accent-orange); 
             padding: 0.4rem 0 0.4rem 1.2rem;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.2rem; 
         }
 
         .highlight-text {
-            font-size: 1.35rem;
-            color: var(--text-white);
-            line-height: 1.4;
+            font-size: 1.35rem; /* 文字反向增大，突出重点 */
+            color: var(--primary-blue);
+            line-height: 1.35;
             font-weight: 700;
         }
 
         .status-box {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 0.6rem;
         }
 
         .status-dot {
-            width: 8px;
-            height: 8px;
+            width: 7px;
+            height: 7px;
             background-color: var(--accent-orange);
             border-radius: 50%;
-            box-shadow: 0 0 10px var(--accent-orange);
             animation: pulse 2s infinite;
         }
 
         @keyframes pulse {
-            0% { transform: scale(0.9); opacity: 0.5; }
-            50% { transform: scale(1.1); opacity: 1; }
-            100% { transform: scale(0.9); opacity: 0.5; }
+            0% { opacity: 0.5; }
+            50% { opacity: 1; }
+            100% { opacity: 0.5; }
         }
 
         .info-text {
             font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.7);
-            margin-bottom: 1rem;
+            color: rgba(26, 54, 93, 0.7);
+            margin-bottom: 0.8rem;
         }
 
         .contact-box {
             font-size: 0.9rem;
-            color: var(--text-white);
+            color: var(--primary-blue);
         }
 
         .contact-link {
-            color: var(--text-white);
+            color: var(--primary-blue);
             text-decoration: none;
             font-weight: 700;
-            border-bottom: 1px solid var(--accent-orange);
-            transition: all 0.3s ease;
-        }
-
-        .contact-link:hover {
-            color: var(--accent-orange);
-            border-bottom-color: var(--text-white);
+            border-bottom: 1.5px solid var(--accent-orange);
         }
 
         footer {
             position: absolute;
-            bottom: 1.5rem;
+            bottom: 1.2rem;
             width: 100%;
             text-align: center;
             font-size: 0.75rem;
-            color: rgba(255, 255, 255, 0.5);
+            color: rgba(255, 255, 255, 0.8);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
         }
 
         @media (max-width: 640px) {
@@ -186,7 +182,7 @@
     </div>
 
     <footer>
-        &copy; 2026 ManufAgent Solutions. All rights reserved.
+        <p>&copy; 2026 ManufAgent Solutions. All rights reserved.</p>
     </footer>
 
 </body>
