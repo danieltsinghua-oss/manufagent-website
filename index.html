@@ -21,7 +21,7 @@
             height: 100%;
             display: flex;
             align-items: center;
-            /* 将逻辑中心设为居中，配合 transform 实现精确位移 */
+            /* 设定为居中，稍后通过 transform 实现向左偏移 5% */
             justify-content: center; 
             font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
@@ -31,7 +31,7 @@
             overflow: hidden;
         }
 
-        /* 紧凑型面板：向左整体偏移 10% */
+        /* 紧凑型面板：整体向左偏移 5% */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
@@ -40,8 +40,8 @@
             padding: 1.5rem 1.8rem;
             max-width: 520px;
             width: 85%;
-            /* 核心修改：将面板整体向左偏移屏幕宽度的 10% */
-            transform: translateX(-10%);
+            /* 关键修改：通过 transform 将面板相对于当前位置向左平移 5% */
+            transform: translateX(-5%); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
             position: relative;
@@ -135,7 +135,7 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* 移动端适配：手机上恢复居中，移除位移 */
+        /* 移动端适配：手机上通常建议完全居中 */
         @media (max-width: 768px) {
             .glass-panel { transform: translateX(0); width: 90%; padding: 1.2rem; }
             h1 { font-size: 1.8rem; }
