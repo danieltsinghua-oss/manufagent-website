@@ -21,9 +21,8 @@
             height: 100%;
             display: flex;
             align-items: center;
-            /* 核心修改：通过 justify-content 和 padding-left 实现整体向右平移 20% */
-            justify-content: center;
-            padding-left: 20%; 
+            /* 设定基础对齐为右侧 */
+            justify-content: flex-end; 
             font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
             background-size: cover;
@@ -32,20 +31,21 @@
             overflow: hidden;
         }
 
-        /* 形状保持不变的紧凑型面板 */
+        /* 紧凑型面板：向右平移 15% 逻辑 */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
             padding: 1.5rem 1.8rem;
-            /* 锁定宽度，确保形状不随位置改变 */
-            width: 520px; 
-            max-width: 90%; 
+            max-width: 520px;
+            width: 85%;
+            /* 通过 margin-right 控制整体向右平移的比例 */
+            /* 15% 的右偏移确保左侧机器人手臂有充足空间 */
+            margin-right: 15%; 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
             position: relative;
-            flex-shrink: 0; /* 防止被挤压 */
         }
 
         header { margin-bottom: 0.8rem; }
@@ -72,6 +72,11 @@
             color: var(--primary-blue);
             line-height: 1.4;
             margin-bottom: 1rem;
+        }
+
+        .main-content strong {
+            font-weight: 700;
+            border-bottom: 2px solid rgba(249, 115, 22, 0.2);
         }
 
         .highlight-card {
@@ -136,10 +141,10 @@
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* 移动端适配：屏幕太窄时取消偏移，回归居中，防止面板溢出 */
-        @media (max-width: 1024px) {
-            body, html { padding-left: 0; justify-content: center; }
-            .glass-panel { width: 90%; margin: 0; }
+        /* 移动端适配：手机上恢复居中 */
+        @media (max-width: 900px) {
+            body, html { justify-content: center; }
+            .glass-panel { margin-right: 0; width: 90%; padding: 1.5rem; }
         }
     </style>
 </head>
