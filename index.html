@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,27 +11,20 @@
             --glass-bg: rgba(255, 255, 255, 0.7); 
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body, html {
             height: 100%;
             display: flex;
             align-items: center;
-            /* 基础对齐设为居中 */
             justify-content: center; 
             font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            overflow: hidden;
         }
 
-        /* 紧凑型面板：整体向右偏移 10% */
         .glass-panel {
             background: var(--glass-bg);
             backdrop-filter: blur(12px);
@@ -40,21 +33,16 @@
             padding: 1.5rem 1.8rem;
             max-width: 520px;
             width: 85%;
-            /* 关键修改：通过 transform 将面板相对于中心点向右平移 10% */
-            /* 这会使面板整体右移，但不会拉伸或压缩面板本身的形状 */
+            /* 保持向右平移 10% 的布局 */
             transform: translateX(10%); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
-            position: relative;
         }
-
-        header { margin-bottom: 0.8rem; }
 
         h1 {
             font-size: 2.1rem;
             font-weight: 800;
             color: var(--primary-blue);
-            letter-spacing: -0.02em;
             margin-bottom: 0.1rem;
         }
 
@@ -63,84 +51,36 @@
             color: var(--accent-orange);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .main-content {
-            font-size: 1.1rem;
-            font-weight: 400;
-            color: var(--primary-blue);
-            line-height: 1.4;
-            margin-bottom: 1rem;
-        }
-
-        .highlight-card {
-            border-left: 2px solid var(--accent-orange); 
-            padding: 0.2rem 0 0.2rem 1rem;
-            margin-bottom: 1rem; 
+            margin-bottom: 0.8rem;
         }
 
         .highlight-text {
             font-size: 1.35rem;
             color: var(--primary-blue);
-            line-height: 1.3;
             font-weight: 700;
-        }
-
-        .status-box {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 0.5rem;
-        }
-
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent-orange);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.5; }
-            50% { opacity: 1; }
-            100% { opacity: 0.5; }
-        }
-
-        .info-text {
-            font-size: 0.8rem;
-            color: rgba(26, 54, 93, 0.7);
-            margin-bottom: 0.6rem;
-        }
-
-        .contact-box {
-            font-size: 0.85rem;
-            color: var(--primary-blue);
+            border-left: 2px solid var(--accent-orange);
+            padding-left: 1rem;
+            margin: 1rem 0;
         }
 
         .contact-link {
             color: var(--primary-blue);
-            text-decoration: none;
             font-weight: 700;
+            text-decoration: none;
             border-bottom: 1px solid var(--accent-orange);
         }
 
         footer {
             position: absolute;
             bottom: 1rem;
-            left: 0;
-            right: 0;
+            width: 100%;
             text-align: center;
             font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.8);
         }
 
-        /* 移动端适配：手机屏幕由于宽度有限，取消偏移以防文字出屏 */
         @media (max-width: 768px) {
-            .glass-panel { transform: translateX(0); width: 90%; padding: 1.2rem; }
-            h1 { font-size: 1.8rem; }
-            .highlight-text { font-size: 1.15rem; }
+            .glass-panel { transform: translateX(0); width: 90%; }
         }
     </style>
 </head>
@@ -148,31 +88,22 @@
 
     <div class="glass-panel">
         <header>
-            <h1>ManufAgent Solutions</h1>
-            <p class="tagline">Autonomous AI agents for next-generation manufacturing</p>
+            <h1>ManufAgent™ Solutions</h1>
+            <p class="tagline">Autonomous AI agents for manufacturing</p>
         </header>
 
         <main>
-            <p class="main-content">
-                We build autonomous, agent-based systems that <strong>reason, orchestrate, optimize, and execute</strong> high-complexity manufacturing operations at scale.
+            <p style="color: var(--primary-blue); line-height: 1.4;">
+                We build autonomous systems that <strong>reason, orchestrate, and execute</strong> high-complexity manufacturing operations.
             </p>
 
-            <div class="highlight-card">
-                <p class="highlight-text">
-                    Our initial focus is advanced battery manufacturing — where materials, processes, and equipment intersect at unprecedented complexity.
-                </p>
+            <div class="highlight-text">
+                Focus: Advanced battery manufacturing.
             </div>
 
-            <div class="status-box">
-                <div class="status-dot"></div>
-                <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-orange);">Currently in active development</span>
-            </div>
-            
-            <p class="info-text">More details will be released soon.</p>
-
-            <div class="contact-box">
-                <p>Contact: <a href="mailto:info@manufagent.com" class="contact-link">info@manufagent.com</a></p>
-            </div>
+            <p style="font-size: 0.85rem; color: var(--primary-blue); margin-top: 1rem;">
+                Contact: <a href="mailto:info@manufagent.com" class="contact-link">info@manufagent.com</a>
+            </p>
         </main>
     </div>
 
