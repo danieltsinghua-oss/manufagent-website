@@ -23,6 +23,7 @@
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            overflow: hidden;
         }
 
         .glass-panel {
@@ -33,16 +34,20 @@
             padding: 1.5rem 1.8rem;
             max-width: 520px;
             width: 85%;
-            /* 保持向右平移 10% 的布局 */
+            /* Offset 10% to the right as requested */
             transform: translateX(10%); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
         }
+
+        header { margin-bottom: 0.8rem; }
 
         h1 {
             font-size: 2.1rem;
             font-weight: 800;
             color: var(--primary-blue);
+            letter-spacing: -0.02em;
             margin-bottom: 0.1rem;
         }
 
@@ -51,29 +56,59 @@
             color: var(--accent-orange);
             font-weight: 700;
             text-transform: uppercase;
-            margin-bottom: 0.8rem;
+            letter-spacing: 0.05em;
+        }
+
+        .main-content {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card {
+            border-left: 2px solid var(--accent-orange); 
+            padding: 0.2rem 0 0.2rem 1rem;
+            margin-bottom: 1rem; 
         }
 
         .highlight-text {
             font-size: 1.35rem;
             color: var(--primary-blue);
             font-weight: 700;
-            border-left: 2px solid var(--accent-orange);
-            padding-left: 1rem;
-            margin: 1rem 0;
         }
+
+        .status-box {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+        .contact-box { font-size: 0.85rem; color: var(--primary-blue); }
 
         .contact-link {
             color: var(--primary-blue);
-            font-weight: 700;
             text-decoration: none;
+            font-weight: 700;
             border-bottom: 1px solid var(--accent-orange);
         }
 
         footer {
             position: absolute;
             bottom: 1rem;
-            width: 100%;
+            left: 0;
+            right: 0;
             text-align: center;
             font-size: 0.7rem;
             color: rgba(255, 255, 255, 0.8);
@@ -89,21 +124,28 @@
     <div class="glass-panel">
         <header>
             <h1>ManufAgent™ Solutions</h1>
-            <p class="tagline">Autonomous AI agents for manufacturing</p>
+            <p class="tagline">Autonomous AI agents for next-generation manufacturing</p>
         </header>
 
         <main>
-            <p style="color: var(--primary-blue); line-height: 1.4;">
-                We build autonomous systems that <strong>reason, orchestrate, and execute</strong> high-complexity manufacturing operations.
+            <p class="main-content">
+                We build autonomous, agent-based systems that <strong>reason, orchestrate, and execute</strong> high-complexity manufacturing operations at scale.
             </p>
 
-            <div class="highlight-text">
-                Focus: Advanced battery manufacturing.
+            <div class="highlight-card">
+                <p class="highlight-text">
+                    Initial focus: advanced battery manufacturing.
+                </p>
             </div>
 
-            <p style="font-size: 0.85rem; color: var(--primary-blue); margin-top: 1rem;">
-                Contact: <a href="mailto:info@manufagent.com" class="contact-link">info@manufagent.com</a>
-            </p>
+            <div class="status-box">
+                <div class="status-dot"></div>
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-orange);">Currently in active development</span>
+            </div>
+            
+            <div class="contact-box">
+                <p>Contact: <a href="mailto:info@manufagent.com" class="contact-link">info@manufagent.com</a></p>
+            </div>
         </main>
     </div>
 
