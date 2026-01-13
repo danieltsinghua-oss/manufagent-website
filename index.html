@@ -6,8 +6,8 @@
     <title>ManufAgent Solutions | Autonomous AI Agents</title>
     <style>
         :root {
-            --brand-blue: #1A365D;   /* Dark Blue for 'Manuf' */
-            --brand-orange: #F97316; /* Bright Orange for 'Agent' */
+            --primary-blue: #1A365D;
+            --accent-orange: #F97316;
             --glass-bg: rgba(255, 255, 255, 0.7); 
         }
 
@@ -18,11 +18,12 @@
             display: flex;
             align-items: center;
             justify-content: center; 
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Inter', -apple-system, sans-serif;
             background-image: url('image_1e4423.png'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
+            overflow: hidden;
         }
 
         .glass-panel {
@@ -30,65 +31,91 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-radius: 16px;
-            padding: 1.8rem;
+            padding: 1.5rem 1.8rem;
             max-width: 520px;
             width: 85%;
-            transform: translateX(10%); /* Keeps panel offset to the right */
+            /* Offset 10% to the right as requested */
+            transform: translateX(10%); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.4);
+            position: relative;
         }
 
-        /* Styled to mimic your Blue and Orange Logo */
-        .logo-text {
-            font-size: 2.2rem;
+        header { margin-bottom: 0.8rem; }
+
+        h1 {
+            font-size: 2.1rem;
             font-weight: 800;
-            letter-spacing: -0.03em;
-            margin-bottom: 0.2rem;
-            line-height: 1;
-        }
-
-        .logo-manuf { color: var(--brand-blue); }
-        .logo-agent { color: var(--brand-orange); }
-        
-        .trademark-symbol {
-            font-size: 0.4em;
-            vertical-align: super;
-            margin-left: 2px;
-            color: var(--brand-blue);
+            color: var(--primary-blue);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.1rem;
         }
 
         .tagline {
             font-size: 0.8rem;
-            color: var(--brand-orange);
+            color: var(--accent-orange);
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.05em;
-            margin-bottom: 1.2rem;
+        }
+
+        .main-content {
+            font-size: 1.1rem;
+            color: var(--primary-blue);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .highlight-card {
+            border-left: 2px solid var(--accent-orange); 
+            padding: 0.2rem 0 0.2rem 1rem;
+            margin-bottom: 1rem; 
         }
 
         .highlight-text {
-            font-size: 1.3rem;
-            color: var(--brand-blue);
+            font-size: 1.35rem;
+            color: var(--primary-blue);
             font-weight: 700;
-            border-left: 3px solid var(--brand-orange);
-            padding-left: 1rem;
-            margin: 1.2rem 0;
-            line-height: 1.3;
         }
 
-        .footer-legal {
+        .status-box {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 0.5rem;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-orange);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+
+        .contact-box { font-size: 0.85rem; color: var(--primary-blue); }
+
+        .contact-link {
+            color: var(--primary-blue);
+            text-decoration: none;
+            font-weight: 700;
+            border-bottom: 1px solid var(--accent-orange);
+        }
+
+        footer {
             position: absolute;
-            bottom: 1.2rem;
-            width: 100%;
+            bottom: 1rem;
+            left: 0;
+            right: 0;
             text-align: center;
             font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.9);
-            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+            color: rgba(255, 255, 255, 0.8);
         }
 
         @media (max-width: 768px) {
-            .glass-panel { transform: translateX(0); width: 92%; padding: 1.5rem; }
-            .logo-text { font-size: 1.8rem; }
+            .glass-panel { transform: translateX(0); width: 90%; }
         }
     </style>
 </head>
@@ -96,30 +123,39 @@
 
     <div class="glass-panel">
         <header>
-            <div class="logo-text">
-                <span class="logo-manuf">Manuf</span><span class="logo-agent">Agent</span><span class="trademark-symbol">™</span>
-            </div>
-            <p class="tagline">Autonomous AI agents for manufacturing</p>
+            <h1>ManufAgent™ Solutions</h1>
+            <p class="tagline">Autonomous AI agents for next-generation manufacturing</p>
         </header>
 
         <main>
-            <p style="color: var(--brand-blue); line-height: 1.5; font-size: 1.05rem;">
-                Orchestrating high-complexity operations through autonomous reasoning and execution.
+            <p class="main-content">
+                We build autonomous, agent-based systems that <strong>reason, orchestrate, and execute</strong> high-complexity manufacturing operations at scale.
             </p>
 
-            <div class="highlight-text">
-                Initial focus: Advanced battery manufacturing.
+            <div class="highlight-card">
+                <p class="highlight-text">
+                    Initial focus: advanced battery manufacturing.
+                </p>
             </div>
 
-            <p style="font-size: 0.9rem; color: var(--brand-blue); font-weight: 600;">
-                Contact: <a href="mailto:info@manufagent.com" style="color: var(--brand-blue); text-decoration: none; border-bottom: 1.5px solid var(--brand-orange);">info@manufagent.com</a>
-            </p>
+            <div class="status-box">
+                <div class="status-dot"></div>
+                <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-orange);">Currently in active development</span>
+            </div>
+            
+            <div class="contact-box">
+                <p>Contact: <a href="mailto:info@manufagent.com" class="contact-link">info@manufagent.com</a></p>
+            </div>
         </main>
     </div>
 
-    <footer class="footer-legal">
+    <footer>
         <p>&copy; 2026 ManufAgent Solutions. All rights reserved.</p>
     </footer>
 
 </body>
 </html>
+
+</body>
+</html>
+
