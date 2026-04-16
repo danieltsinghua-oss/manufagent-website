@@ -1,161 +1,493 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManufAgent Solutions | Autonomous AI Agents</title>
-    <style>
-        :root {
-            --primary-blue: #1A365D;
-            --accent-orange: #F97316;
-            --glass-bg: rgba(255, 255, 255, 0.7); 
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ManufAgent™ Solutions</title>
+  <style>
+    :root {
+      --navy: #163766;
+      --navy-2: #23395b;
+      --slate: #3f516a;
+      --muted: #6a7b93;
+      --accent: #e67e22;
+      --green: #1f6b5c;
+      --line: rgba(22, 55, 102, 0.12);
+      --panel: rgba(255, 255, 255, 0.84);
+      --card: rgba(255, 255, 255, 0.78);
+      --shadow-lg: 0 20px 60px rgba(16, 32, 64, 0.12);
+      --shadow-md: 0 8px 24px rgba(16, 32, 64, 0.06);
+      --radius-lg: 28px;
+      --radius-md: 20px;
+      --maxw: 1180px;
+    }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-        body, html {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center; 
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-image: url('image_1e4423.png'); 
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            overflow: hidden;
-        }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--navy-2);
+      background: #eef2f5;
+    }
 
-        .glass-panel {
-            background: var(--glass-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-radius: 16px;
-            padding: 1.5rem 1.8rem;
-            max-width: 520px;
-            width: 85%;
-            /* Offset 10% to the right as requested */
-            transform: translateX(10%); 
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            position: relative;
-        }
+    body {
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(248, 250, 252, 0.70), rgba(248, 250, 252, 0.70)),
+        url("your-background-image.jpg") center center / cover no-repeat fixed;
+    }
 
-        header { margin-bottom: 0.8rem; }
+    .page {
+      padding: 48px;
+    }
 
-        h1 {
-            font-size: 2.1rem;
-            font-weight: 800;
-            color: var(--primary-blue);
-            letter-spacing: -0.02em;
-            margin-bottom: 0.1rem;
-        }
+    .panel {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 44px 44px 28px;
+      background: var(--panel);
+      backdrop-filter: blur(10px);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-lg);
+    }
 
-        .tagline {
-            font-size: 0.8rem;
-            color: var(--accent-orange);
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
+    .hero {
+      text-align: center;
+      margin-bottom: 28px;
+    }
 
-        .main-content {
-            font-size: 1.1rem;
-            color: var(--primary-blue);
-            line-height: 1.4;
-            margin-bottom: 1rem;
-        }
+    .hero h1 {
+      margin: 0 0 12px;
+      font-size: clamp(42px, 6vw, 64px);
+      line-height: 1;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.03em;
+    }
 
-        .highlight-card {
-            border-left: 2px solid var(--accent-orange); 
-            padding: 0.2rem 0 0.2rem 1rem;
-            margin-bottom: 1rem; 
-        }
+    .hero .subtitle {
+      margin: 0 0 18px;
+      font-size: clamp(18px, 2.8vw, 28px);
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
 
-        .highlight-text {
-            font-size: 1.35rem;
-            color: var(--primary-blue);
-            font-weight: 700;
-        }
+    .hero .lead {
+      max-width: 920px;
+      margin: 0 auto 16px;
+      font-size: clamp(18px, 2.1vw, 22px);
+      line-height: 1.45;
+      font-weight: 400;
+      color: var(--navy-2);
+    }
 
-        .status-box {
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            margin-bottom: 0.5rem;
-        }
+    .hero .lead strong {
+      font-weight: 700;
+      color: var(--navy);
+    }
 
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent-orange);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
+    .hero .strategy {
+      margin: 0 auto;
+      max-width: 980px;
+      font-size: clamp(16px, 1.8vw, 20px);
+      line-height: 1.4;
+      font-weight: 500;
+      color: #4c5e78;
+    }
 
-        @keyframes pulse { 0%, 100% { opacity: 0.5; } 50% { opacity: 1; } }
+    .divider {
+      height: 1px;
+      background: var(--line);
+      margin: 24px 0 28px;
+    }
 
-        .contact-box { font-size: 0.85rem; color: var(--primary-blue); }
+    .grid {
+      display: grid;
+      grid-template-columns: 56% 44%;
+      gap: 32px;
+      align-items: start;
+    }
 
-        .contact-link {
-            color: var(--primary-blue);
-            text-decoration: none;
-            font-weight: 700;
-            border-bottom: 1px solid var(--accent-orange);
-        }
+    .section-title {
+      margin: 0 0 14px;
+      font-size: 22px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
 
-        footer {
-            position: absolute;
-            bottom: 1rem;
-            left: 0;
-            right: 0;
-            text-align: center;
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.8);
-        }
+    .section-intro {
+      margin: 0 0 18px;
+      font-size: 17px;
+      line-height: 1.45;
+      font-weight: 500;
+      color: #2b405f;
+    }
 
-        @media (max-width: 768px) {
-            .glass-panel { transform: translateX(0); width: 90%; }
-        }
-    </style>
+    .section-intro strong {
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .copy {
+      font-size: 15px;
+      line-height: 1.55;
+      color: var(--slate);
+      margin: 0;
+    }
+
+    .section-divider {
+      height: 1px;
+      background: rgba(22, 55, 102, 0.10);
+      margin: 24px 0;
+    }
+
+    .feature-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 16px;
+    }
+
+    .feature-list li {
+      padding-left: 0;
+    }
+
+    .feature-list strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 16px;
+      line-height: 1.35;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .feature-list span {
+      display: block;
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--slate);
+    }
+
+    .cards {
+      display: grid;
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(22, 55, 102, 0.08);
+      border-radius: var(--radius-md);
+      padding: 22px 24px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .architecture-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 12px;
+    }
+
+    .architecture-list li {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #2b405f;
+    }
+
+    .architecture-list strong {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .eyebrow {
+      margin: 0 0 6px;
+      font-size: 14px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .usecase-title {
+      margin: 0 0 6px;
+      font-size: 18px;
+      line-height: 1.25;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+
+    .kicker {
+      margin: 0 0 14px;
+      font-size: 15px;
+      line-height: 1.4;
+      font-style: italic;
+      font-weight: 500;
+      color: #4c5e78;
+    }
+
+    .impact-label {
+      margin: 14px 0 8px;
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .mini-list {
+      list-style: disc;
+      padding-left: 20px;
+      margin: 0;
+      display: grid;
+      gap: 8px;
+    }
+
+    .mini-list li {
+      font-size: 15px;
+      line-height: 1.45;
+      color: var(--slate);
+    }
+
+    .bottom-band {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 24px;
+    }
+
+    .bottom-left {
+      flex: 1 1 auto;
+    }
+
+    .bottom-right {
+      flex: 0 0 auto;
+      text-align: right;
+    }
+
+    .bottom-label {
+      margin: 0 0 10px;
+      font-size: 20px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--navy);
+    }
+
+    .bottom-line {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.45;
+      font-weight: 500;
+      color: #2b405f;
+    }
+
+    .tagline {
+      margin: 0;
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: -0.02em;
+    }
+
+    .contact {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 17px;
+      line-height: 1.4;
+      font-weight: 500;
+      color: #2b405f;
+    }
+
+    .contact a {
+      color: var(--navy);
+      font-weight: 700;
+      text-decoration-thickness: 1.5px;
+      text-underline-offset: 3px;
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      text-align: center;
+      font-size: 12px;
+      line-height: 1.4;
+      color: rgba(35, 57, 91, 0.55);
+    }
+
+    @media (max-width: 900px) {
+      .page {
+        padding: 24px;
+      }
+
+      .panel {
+        padding: 28px 24px 24px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+
+      .bottom-band {
+        flex-direction: column;
+        align-items: start;
+      }
+
+      .bottom-right {
+        text-align: left;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding: 16px;
+      }
+
+      .hero .subtitle {
+        letter-spacing: 0.02em;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+
+      .bottom-label {
+        font-size: 18px;
+      }
+
+      .bottom-line {
+        font-size: 16px;
+      }
+
+      .tagline {
+        font-size: 21px;
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="page">
+    <section class="panel">
+      <header class="hero">
+        <h1>ManufAgent™ Solutions</h1>
+        <p class="subtitle">AI-Orchestrated Manufacturing Intelligence</p>
+        <p class="lead">
+          We build agent-based systems that
+          <strong>reason, orchestrate, and optimize</strong>
+          complex manufacturing operations.
+        </p>
+        <p class="strategy">
+          From process execution → system intelligence → autonomous optimization
+        </p>
+      </header>
 
-    <div class="glass-panel">
-        <header>
-            <h1>ManufAgent™ Solutions</h1>
-            <p class="tagline">Autonomous AI agents for next-generation manufacturing</p>
-        </header>
+      <div class="divider"></div>
 
-        <main>
-            <p class="main-content">
-                We build autonomous, agent-based systems that <strong>reason, orchestrate, and execute</strong> high-complexity manufacturing operations at scale.
-            </p>
+      <section class="grid">
+        <div class="left-column">
+          <h2 class="section-title">What the System Does</h2>
+          <p class="section-intro">
+            A cross-process intelligence layer that turns manufacturing into a
+            <strong>self-learning, decision-making system</strong>
+          </p>
 
-            <div class="highlight-card">
-                <p class="highlight-text">
-                    Initial focus: advanced battery manufacturing.
-                </p>
-            </div>
+          <ul class="feature-list">
+            <li>
+              <strong>Predict performance early</strong>
+              <span>yield, cycle life from upstream data</span>
+            </li>
+            <li>
+              <strong>Detect hidden risks</strong>
+              <span>beyond inspection and rule-based QC</span>
+            </li>
+            <li>
+              <strong>Optimize system-wide performance</strong>
+              <span>yield, throughput, consistency</span>
+            </li>
+            <li>
+              <strong>Orchestrate workflows</strong>
+              <span>equipment, MES, data systems</span>
+            </li>
+          </ul>
 
-            <div class="status-box">
-                <div class="status-dot"></div>
-                <span style="font-size: 0.8rem; font-weight: 700; color: var(--accent-orange);">Currently in active development</span>
-            </div>
-            
-            <div class="contact-box">
-                <p>Contact: <a href="mailto:info@manufagent.com" class="contact-link">info@manufagent.com</a></p>
-            </div>
-        </main>
-    </div>
+          <div class="section-divider"></div>
 
-    <footer>
-        <p>&copy; 2026 ManufAgent Solutions. All rights reserved.</p>
-    </footer>
+          <h2 class="section-title">Technology Direction</h2>
+          <p class="bottom-line">
+            From <strong>data visibility → system intelligence → autonomous manufacturing</strong>
+          </p>
+        </div>
 
+        <div class="right-column">
+          <div class="cards">
+            <article class="card">
+              <h2 class="section-title">System Architecture</h2>
+              <ul class="architecture-list">
+                <li><strong>Data Layer</strong> — process, materials, electrochemistry</li>
+                <li><strong>Intelligence Layer</strong> — AI models and agents</li>
+                <li><strong>Orchestration Layer</strong> — workflow coordination</li>
+                <li><strong>Control Layer</strong> — digital twin closed-loop optimization</li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <p class="eyebrow">Example Use Case</p>
+              <h3 class="usecase-title">AI-Orchestrated Quality Intelligence</h3>
+              <p class="kicker">From inspection → prediction → autonomous quality</p>
+
+              <p class="copy">
+                Traditional QC is reactive. Cells can pass inspection — and still fail.
+              </p>
+              <p class="section-intro" style="margin-top:12px; margin-bottom:12px;">
+                <strong>ManufAgent predicts failure risk from full lifecycle data (5M1E)</strong>
+              </p>
+
+              <ul class="mini-list">
+                <li>Detects hidden failure signatures</li>
+                <li>No additional hardware required</li>
+              </ul>
+
+              <p class="impact-label">Impact</p>
+              <ul class="mini-list">
+                <li>Early detection of weak cells</li>
+                <li>Higher yield without over-rejection</li>
+                <li>Reduced field failure risk</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="bottom-band">
+        <div class="bottom-left">
+          <p class="bottom-label">End State</p>
+          <p class="bottom-line">Manufacturing that continuously learns and improves</p>
+        </div>
+        <div class="bottom-right">
+          <p class="tagline">Gigafactories that learn to excel</p>
+        </div>
+      </section>
+
+      <p class="contact">
+        <strong>Contact:</strong> <a href="mailto:info@manufagent.com">info@manufagent.com</a>
+      </p>
+
+      <p class="footer-note">© 2026 ManufAgent Solutions. All rights reserved.</p>
+    </section>
+  </main>
 </body>
 </html>
-
-</body>
-</html>
-
