@@ -8,17 +8,17 @@
     :root {
       --navy: #163766;
       --navy-2: #23395b;
-      --slate: #3f516a;
-      --muted: #6a7b93;
+      --slate: #42556f;
+      --muted: #6b7c94;
       --accent: #e67e22;
       --green: #1f6b5c;
       --line: rgba(22, 55, 102, 0.12);
       --panel: rgba(255, 255, 255, 0.84);
       --card: rgba(255, 255, 255, 0.78);
       --shadow-lg: 0 20px 60px rgba(16, 32, 64, 0.12);
-      --shadow-md: 0 8px 24px rgba(16, 32, 64, 0.06);
+      --shadow-md: 0 10px 28px rgba(16, 32, 64, 0.07);
       --radius-lg: 28px;
-      --radius-md: 20px;
+      --radius-md: 18px;
       --maxw: 1180px;
     }
 
@@ -32,6 +32,9 @@
       font-family: Inter, "Helvetica Neue", Helvetica, Arial, sans-serif;
       color: var(--navy-2);
       background: #eef2f5;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      letter-spacing: -0.01em;
     }
 
     body {
@@ -48,7 +51,7 @@
     .panel {
       max-width: var(--maxw);
       margin: 0 auto;
-      padding: 44px 44px 28px;
+      padding: 42px 40px 24px;
       background: var(--panel);
       backdrop-filter: blur(10px);
       border-radius: var(--radius-lg);
@@ -57,32 +60,32 @@
 
     .hero {
       text-align: center;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
     }
 
     .hero h1 {
-      margin: 0 0 12px;
-      font-size: clamp(42px, 6vw, 64px);
-      line-height: 1;
+      margin: 0 0 10px;
+      font-size: clamp(46px, 6vw, 66px);
+      line-height: 0.98;
       font-weight: 800;
       color: var(--navy);
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
     }
 
     .hero .subtitle {
       margin: 0 0 18px;
-      font-size: clamp(18px, 2.8vw, 28px);
-      line-height: 1.2;
-      font-weight: 700;
+      font-size: clamp(18px, 2.4vw, 30px);
+      line-height: 1.15;
+      font-weight: 800;
       color: var(--accent);
       text-transform: uppercase;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.03em;
     }
 
     .hero .lead {
-      max-width: 920px;
-      margin: 0 auto 16px;
-      font-size: clamp(18px, 2.1vw, 22px);
+      max-width: 900px;
+      margin: 0 auto 12px;
+      font-size: clamp(18px, 2vw, 22px);
       line-height: 1.45;
       font-weight: 400;
       color: var(--navy-2);
@@ -95,23 +98,23 @@
 
     .hero .strategy {
       margin: 0 auto;
-      max-width: 980px;
-      font-size: clamp(16px, 1.8vw, 20px);
+      max-width: 940px;
+      font-size: clamp(16px, 1.7vw, 20px);
       line-height: 1.4;
       font-weight: 500;
-      color: #4c5e78;
+      color: #556884;
     }
 
     .divider {
       height: 1px;
       background: var(--line);
-      margin: 24px 0 28px;
+      margin: 24px 0 26px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: 56% 44%;
-      gap: 32px;
+      gap: 26px;
       align-items: start;
     }
 
@@ -125,11 +128,11 @@
     }
 
     .section-intro {
-      margin: 0 0 18px;
-      font-size: 17px;
-      line-height: 1.45;
+      margin: 0 0 16px;
+      font-size: 16px;
+      line-height: 1.5;
+      color: #2d4362;
       font-weight: 500;
-      color: #2b405f;
     }
 
     .section-intro strong {
@@ -138,16 +141,16 @@
     }
 
     .copy {
+      margin: 0;
       font-size: 15px;
       line-height: 1.55;
       color: var(--slate);
-      margin: 0;
     }
 
     .section-divider {
       height: 1px;
       background: rgba(22, 55, 102, 0.10);
-      margin: 24px 0;
+      margin: 22px 0 18px;
     }
 
     .feature-list {
@@ -155,7 +158,7 @@
       padding: 0;
       margin: 0;
       display: grid;
-      gap: 16px;
+      gap: 14px;
     }
 
     .feature-list li {
@@ -165,29 +168,29 @@
     .feature-list strong {
       display: block;
       margin-bottom: 2px;
-      font-size: 16px;
+      font-size: 15px;
       line-height: 1.35;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--navy);
     }
 
     .feature-list span {
       display: block;
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.45;
       color: var(--slate);
     }
 
     .cards {
       display: grid;
-      gap: 24px;
+      gap: 20px;
     }
 
     .card {
       background: var(--card);
       border: 1px solid rgba(22, 55, 102, 0.08);
       border-radius: var(--radius-md);
-      padding: 22px 24px;
+      padding: 20px 22px;
       box-shadow: var(--shadow-md);
     }
 
@@ -196,25 +199,25 @@
       padding: 0;
       margin: 0;
       display: grid;
-      gap: 12px;
+      gap: 11px;
     }
 
     .architecture-list li {
       font-size: 15px;
       line-height: 1.5;
-      color: #2b405f;
+      color: #2d4362;
     }
 
     .architecture-list strong {
-      font-weight: 700;
+      font-weight: 800;
       color: var(--navy);
     }
 
     .eyebrow {
       margin: 0 0 6px;
-      font-size: 14px;
+      font-size: 13px;
       line-height: 1.2;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--muted);
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -230,43 +233,43 @@
     }
 
     .kicker {
-      margin: 0 0 14px;
-      font-size: 15px;
+      margin: 0 0 12px;
+      font-size: 14px;
       line-height: 1.4;
       font-style: italic;
       font-weight: 500;
-      color: #4c5e78;
+      color: #5f7088;
     }
 
     .impact-label {
       margin: 14px 0 8px;
       font-size: 15px;
       line-height: 1.2;
-      font-weight: 700;
+      font-weight: 800;
       color: var(--navy);
     }
 
     .mini-list {
       list-style: disc;
-      padding-left: 20px;
+      padding-left: 18px;
       margin: 0;
       display: grid;
       gap: 8px;
     }
 
     .mini-list li {
-      font-size: 15px;
+      font-size: 14px;
       line-height: 1.45;
       color: var(--slate);
     }
 
     .bottom-band {
-      margin-top: 28px;
-      padding-top: 20px;
+      margin-top: 24px;
+      padding-top: 18px;
       border-top: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
-      align-items: end;
+      align-items: flex-end;
       gap: 24px;
     }
 
@@ -280,8 +283,8 @@
     }
 
     .bottom-label {
-      margin: 0 0 10px;
-      font-size: 20px;
+      margin: 0 0 8px;
+      font-size: 18px;
       line-height: 1.2;
       font-weight: 800;
       color: var(--navy);
@@ -289,15 +292,16 @@
 
     .bottom-line {
       margin: 0;
-      font-size: 18px;
-      line-height: 1.45;
+      font-size: 16px;
+      line-height: 1.5;
       font-weight: 500;
-      color: #2b405f;
+      color: #2d4362;
+      max-width: 620px;
     }
 
     .tagline {
       margin: 0;
-      font-size: 24px;
+      font-size: 22px;
       line-height: 1.2;
       font-weight: 800;
       color: var(--green);
@@ -307,13 +311,20 @@
     .contact {
       margin-top: 18px;
       text-align: center;
-      font-size: 17px;
-      line-height: 1.4;
-      font-weight: 500;
-      color: #2b405f;
+    }
+
+    .contact .contact-label {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 15px;
+      line-height: 1.2;
+      font-weight: 700;
+      color: var(--navy);
     }
 
     .contact a {
+      font-size: 17px;
+      line-height: 1.4;
       color: var(--navy);
       font-weight: 700;
       text-decoration-thickness: 1.5px;
@@ -321,11 +332,11 @@
     }
 
     .footer-note {
-      margin-top: 18px;
+      margin-top: 14px;
       text-align: center;
-      font-size: 12px;
+      font-size: 11px;
       line-height: 1.4;
-      color: rgba(35, 57, 91, 0.55);
+      color: rgba(35, 57, 91, 0.50);
     }
 
     @media (max-width: 900px) {
@@ -334,17 +345,17 @@
       }
 
       .panel {
-        padding: 28px 24px 24px;
+        padding: 28px 22px 22px;
       }
 
       .grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
       }
 
       .bottom-band {
         flex-direction: column;
-        align-items: start;
+        align-items: flex-start;
       }
 
       .bottom-right {
@@ -427,9 +438,20 @@
           <div class="section-divider"></div>
 
           <h2 class="section-title">Technology Direction</h2>
-          <p class="bottom-line">
-            From <strong>data visibility → system intelligence → autonomous manufacturing</strong>
-          </p>
+          <ul class="feature-list">
+            <li>
+              <strong>Prediction</strong>
+              <span>anticipate performance and failure risk</span>
+            </li>
+            <li>
+              <strong>Reasoning</strong>
+              <span>identify cross-process relationships</span>
+            </li>
+            <li>
+              <strong>Control</strong>
+              <span>enable digital twin–driven closed-loop optimization</span>
+            </li>
+          </ul>
         </div>
 
         <div class="right-column">
@@ -450,7 +472,7 @@
               <p class="kicker">From inspection → prediction → autonomous quality</p>
 
               <p class="copy">
-                Traditional QC is reactive. Cells can pass inspection — and still fail.
+                Traditional QC is reactive. Cells can pass inspection and still fail in the field.
               </p>
               <p class="section-intro" style="margin-top:12px; margin-bottom:12px;">
                 <strong>ManufAgent predicts failure risk from full lifecycle data (5M1E)</strong>
@@ -475,16 +497,19 @@
       <section class="bottom-band">
         <div class="bottom-left">
           <p class="bottom-label">End State</p>
-          <p class="bottom-line">Manufacturing that continuously learns and improves</p>
+          <p class="bottom-line">
+            Self-learning manufacturing systems that continuously improve yield, quality, and throughput.
+          </p>
         </div>
         <div class="bottom-right">
           <p class="tagline">Gigafactories that learn to excel</p>
         </div>
       </section>
 
-      <p class="contact">
-        <strong>Contact:</strong> <a href="mailto:info@manufagent.com">info@manufagent.com</a>
-      </p>
+      <div class="contact">
+        <span class="contact-label">Contact</span>
+        <a href="mailto:info@manufagent.com">info@manufagent.com</a>
+      </div>
 
       <p class="footer-note">© 2026 ManufAgent Solutions. All rights reserved.</p>
     </section>
