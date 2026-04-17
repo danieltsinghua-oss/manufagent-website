@@ -41,7 +41,7 @@
       min-height: 100vh;
       background:
         linear-gradient(rgba(248, 250, 252, 0.70), rgba(248, 250, 252, 0.70)),
-        url("your-background-image.jpg") center center / cover no-repeat fixed;
+        url("image_1e4423.png") center center / cover no-repeat fixed;
     }
 
     .page {
@@ -60,7 +60,7 @@
 
     .hero {
       text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .hero h1 {
@@ -73,7 +73,7 @@
     }
 
     .hero .subtitle {
-      margin: 0 0 18px;
+      margin: 0 0 24px;
       font-size: clamp(18px, 2.4vw, 30px);
       line-height: 1.15;
       font-weight: 800;
@@ -108,13 +108,13 @@
     .divider {
       height: 1px;
       background: var(--line);
-      margin: 24px 0 26px;
+      margin: 32px 0 26px;
     }
 
     .grid {
       display: grid;
-      grid-template-columns: 56% 44%;
-      gap: 26px;
+      grid-template-columns: 54% 46%;
+      gap: 28px;
       align-items: start;
     }
 
@@ -134,7 +134,11 @@
       color: #2d4362;
       font-weight: 500;
     }
-
+    .usecase-highlight {
+      margin-top: 12px !important;
+      margin-bottom: 12px !important;
+    }
+    
     .section-intro strong {
       color: var(--navy);
       font-weight: 800;
@@ -269,7 +273,7 @@
       border-top: 1px solid var(--line);
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
+      align-items: center;
       gap: 24px;
     }
 
@@ -301,7 +305,7 @@
 
     .tagline {
       margin: 0;
-      font-size: 22px;
+      font-size: 20px;
       line-height: 1.2;
       font-weight: 800;
       color: var(--green);
@@ -309,17 +313,19 @@
     }
 
     .contact {
-      margin-top: 18px;
+      margin-top: 20px;
       text-align: center;
     }
 
     .contact .contact-label {
       display: block;
-      margin-bottom: 4px;
-      font-size: 15px;
+      margin-bottom: 6px;
+      font-size: 14px;
       line-height: 1.2;
-      font-weight: 700;
-      color: var(--navy);
+      font-weight: 800;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
     .contact a {
@@ -360,6 +366,7 @@
 
       .bottom-right {
         text-align: left;
+        width: 100%;
       }
     }
 
@@ -385,7 +392,7 @@
       }
 
       .tagline {
-        font-size: 21px;
+        font-size: 19px;
       }
     }
   </style>
@@ -412,8 +419,8 @@
         <div class="left-column">
           <h2 class="section-title">What the System Does</h2>
           <p class="section-intro">
-            A cross-process intelligence layer that turns manufacturing into a
-            <strong>self-learning, decision-making system</strong>
+            A cross-process intelligence layer for
+            <strong>self-learning, decision-making manufacturing systems</strong>
           </p>
 
           <ul class="feature-list">
@@ -474,8 +481,8 @@
               <p class="copy">
                 Traditional QC is reactive. Cells can pass inspection and still fail in the field.
               </p>
-              <p class="section-intro" style="margin-top:12px; margin-bottom:12px;">
-                <strong>ManufAgent predicts failure risk from full lifecycle data (5M1E)</strong>
+              <p class="section-intro usecase-highlight">
+                <strong>ManufAgent predicts failure risk from lifecycle data (5M1E)</strong>
               </p>
 
               <ul class="mini-list">
